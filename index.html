@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadoxon — PDF kitoblaringiz endi so'zlaydi</title>
+<meta name="description" content="O'zbek tilida sun'iy intellekt bilan audio kitob yarating. Anvar va Oynisa ovozida tinglang. Android uchun bepul yuklab oling.">
+<meta property="og:title" content="Sadoxon — PDF kitoblaringiz endi so'zlaydi">
+<meta property="og:description" content="O'zbek tilida sun'iy intellekt bilan audio kitob yarating. Anvar va Oynisa ovozida tinglang.">
+<meta property="og:image" content="screenshots/1-kutubxona.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  :root {
+    --fon: #131313;
+    --karta: #2A2A2A;
+    --matn: #E5E2E1;
+    --kulrang: #A8A29B;
+    --oltin: #FFB300;
+    --oltin-matn: #6B4900;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--fon);
+    color: var(--matn);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .idish {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  h1, h2, h3, .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(19, 19, 19, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  header .idish {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .brand {
+    font-size: 24px;
+    color: var(--oltin);
+    letter-spacing: -0.3px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--matn);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-links a:hover { color: var(--oltin); }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .hero .idish {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.15;
+    color: var(--matn);
+    letter-spacing: -0.5px;
+  }
+  .hero h1 .oltin-soz { color: var(--oltin); }
+  .hero p.subtitr {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--kulrang);
+    max-width: 480px;
+  }
+  .cta-tugma {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    padding: 18px 32px;
+    background: var(--oltin);
+    color: var(--oltin-matn);
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(255, 179, 0, 0.25);
+    transition: filter 0.15s ease, transform 0.15s ease;
+  }
+  .cta-tugma:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .cta-kichik {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--kulrang);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-rasm {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-rasm img {
+    max-width: 280px;
+    border-radius: 24px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+
+  /* SECTION SHARED */
+  section {
+    padding: 64px 0;
+  }
+  section h2 {
+    font-size: 32px;
+    text-align: center;
+    color: var(--matn);
+    margin-bottom: 12px;
+  }
+  section .section-subtitr {
+    text-align: center;
+    color: var(--kulrang);
+    font-size: 16px;
+    max-width: 520px;
+    margin: 0 auto 48px;
+  }
+
+  /* FEATURES */
+  .xususiyat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .xususiyat-karta {
+    background: var(--karta);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .xususiyat-ikon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(255, 179, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: var(--oltin);
+  }
+  .xususiyat-karta h3 {
+    font-size: 19px;
+    color: var(--matn);
+    margin-bottom: 10px;
+  }
+  .xususiyat-karta p {
+    font-size: 14.5px;
+    color: var(--kulrang);
+  }
+
+  /* GALLERY */
+  .galereya-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .galereya-item {
+    background: var(--karta);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .galereya-item img { width: 100%; }
+  .galereya-item .izoh {
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--kulrang);
+    text-align: center;
+  }
+
+  /* STEPS */
+  .qadam-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .qadam-karta {
+    background: var(--karta);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .qadam-raqam {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--oltin);
+    color: var(--oltin-matn);
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .qadam-karta h3 {
+    font-size: 17px;
+    color: var(--matn);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  .qadam-karta p {
+    font-size: 14px;
+    color: var(--kulrang);
+  }
+  .qadam-karta .eslatma {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--oltin);
+    opacity: 0.85;
+  }
+
+  /* FAQ */
+  .faq-royxat { max-width: 720px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 0;
+  }
+  .faq-savol {
+    font-size: 16.5px;
+    font-weight: 600;
+    color: var(--matn);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+  }
+  .faq-savol::-webkit-details-marker { display: none; }
+  .faq-savol .ti { color: var(--oltin); transition: transform 0.2s ease; flex-shrink: 0; }
+  details[open] .faq-savol .ti { transform: rotate(45deg); }
+  .faq-javob {
+    margin-top: 12px;
+    font-size: 14.5px;
+    color: var(--kulrang);
+    max-width: 640px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 0;
+  }
+  footer .idish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+  .footer-linklar {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-linklar a {
+    text-decoration: none;
+    color: var(--kulrang);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-linklar a:hover { color: var(--oltin); }
+  footer .mualliflik {
+    font-size: 13px;
+    color: var(--kulrang);
+    opacity: 0.7;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .hero .idish { grid-template-columns: 1fr; text-align: center; }
+    .hero p.subtitr { margin-left: auto; margin-right: auto; }
+    .hero-rasm { order: -1; }
+    .hero h1 { font-size: 34px; }
+    .xususiyat-grid { grid-template-columns: 1fr; }
+    .qadam-grid { grid-template-columns: 1fr; }
+    .galereya-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links span { display: none; }
+  }
+  @media (max-width: 480px) {
+    .galereya-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    section h2 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="idish">
+    <span class="brand">Sadoxon</span>
+    <nav class="nav-links">
+      <a href="#faq"><i class="ti ti-help-circle"></i> Yordam</a>
+      <a href="https://t.me/sadoxon_support" target="_blank" rel="noopener"><i class="ti ti-brand-telegram"></i> Telegram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="idish">
+    <div>
+      <h1>PDF kitoblaringiz endi <span class="oltin-soz">so'zlaydi</span></h1>
+      <p class="subtitr">O'zbek tilida sun'iy intellekt bilan audio kitob yarating. Anvar va Oynisa ovozida tinglang.</p>
+      <a class="cta-tugma" href="sadoxon.apk" download>
+        <i class="ti ti-download"></i> APK yuklab olish (55 MB)
+      </a>
+      <p class="cta-kichik"><i class="ti ti-brand-android"></i> Android 8.0+ &nbsp;•&nbsp; Bepul</p>
+    </div>
+    <div class="hero-rasm">
+      <img src="screenshots/1-kutubxona.jpg" alt="Sadoxon ilovasi — Kutubxona ekrani" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section id="xususiyatlar">
+  <div class="idish">
+    <h2>Nega Sadoxon?</h2>
+    <p class="section-subtitr">Kitob o'qish endi ko'zlaringizga bog'liq emas.</p>
+    <div class="xususiyat-grid">
+      <div class="xususiyat-karta">
+        <div class="xususiyat-ikon"><i class="ti ti-microphone-2"></i></div>
+        <h3>2 ta ovoz</h3>
+        <p>Anvar va Oynisa — jonli o'zbek ovozi. Erkak yoki ayol ovozini o'zingiz tanlaysiz.</p>
+      </div>
+      <div class="xususiyat-karta">
+        <div class="xususiyat-ikon"><i class="ti ti-wifi-off"></i></div>
+        <h3>Offline tinglash</h3>
+        <p>Audio kitobni telefoningizga yuklab oling — internetsiz ham istalgan joyda tinglang.</p>
+      </div>
+      <div class="xususiyat-karta">
+        <div class="xususiyat-ikon"><i class="ti ti-file-upload"></i></div>
+        <h3>O'z kitobingiz</h3>
+        <p>Istagan PDF faylingizni yuklang — biz uni yuqori sifatli audiokitobga aylantiramiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skrinshotlar">
+  <div class="idish">
+    <h2>Ilova ichida</h2>
+    <p class="section-subtitr">Sodda va tushunarli — birinchi kitobingizni bir necha daqiqada yarating.</p>
+    <div class="galereya-grid">
+      <div class="galereya-item">
+        <img src="screenshots/1-kutubxona.jpg" alt="Kutubxona ekrani" loading="lazy">
+        <div class="izoh">Kitoblar endi so'zlaydi</div>
+      </div>
+      <div class="galereya-item">
+        <img src="screenshots/2-yuklash.jpg" alt="PDF yuklash ekrani" loading="lazy">
+        <div class="izoh">O'z PDF kitobingizni yuklang</div>
+      </div>
+      <div class="galereya-item">
+        <img src="screenshots/3-ovoz.jpg" alt="Ovoz tanlash ekrani" loading="lazy">
+        <div class="izoh">Anvar va Oynisa — jonli o'zbek ovozi</div>
+      </div>
+      <div class="galereya-item">
+        <img src="screenshots/4-player.jpg" alt="Player ekrani" loading="lazy">
+        <div class="izoh">Istalgan joyda, istalgan tezlikda tinglang</div>
+      </div>
+      <div class="galereya-item">
+        <img src="screenshots/5-token.jpg" alt="Token olish ekrani" loading="lazy">
+        <div class="izoh">Reklama ko'ring — bepul token oling</div>
+      </div>
+      <div class="galereya-item">
+        <img src="screenshots/6-profil.jpg" alt="Profil ekrani" loading="lazy">
+        <div class="izoh">Profilingiz — token va tarix bir joyda</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ornatish">
+  <div class="idish">
+    <h2>Qanday o'rnatiladi</h2>
+    <p class="section-subtitr">3 ta sodda qadam — bir necha daqiqada tayyor.</p>
+    <div class="qadam-grid">
+      <div class="qadam-karta">
+        <div class="qadam-raqam">1</div>
+        <h3>APK yuklab oling</h3>
+        <p>Yuqoridagi "APK yuklab olish" tugmasini bosing.</p>
+      </div>
+      <div class="qadam-karta">
+        <div class="qadam-raqam">2</div>
+        <h3>Ruxsat bering</h3>
+        <p>Sozlamalar → Xavfsizlik → "Noma'lum manbalar"ni yoqing.</p>
+        <p class="eslatma">Ba'zi telefonlarda: fayl menejerdan APK'ni ochsangiz, shu ruxsatni o'zi so'raydi.</p>
+      </div>
+      <div class="qadam-karta">
+        <div class="qadam-raqam">3</div>
+        <h3>O'rnating va kiring</h3>
+        <p>APK'ni ochib o'rnating, Google akkaunt bilan kiring — 50 bonus token beriladi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="idish">
+    <h2>Ko'p so'raladigan savollar</h2>
+    <div class="faq-royxat">
+      <div class="faq-item">
+        <details>
+          <summary class="faq-savol">Xavfsizmi? <i class="ti ti-plus"></i></summary>
+          <p class="faq-javob">Ha, ilova sizning shaxsiy Google akkauntingiz bilan ishlaydi. Barcha ma'lumotlar shifrlangan.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-savol">Nima uchun Play Store'da yo'q? <i class="ti ti-plus"></i></summary>
+          <p class="faq-javob">Play Store versiyasi tez orada chiqadi. Hozircha to'g'ridan yuklab oling.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-savol">Bepulmi? <i class="ti ti-plus"></i></summary>
+          <p class="faq-javob">Ha, ilova bepul. Reklama ko'rish orqali token olasiz va ular bilan audio kitob yaratasiz.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-savol">Qaysi kitoblar bor? <i class="ti ti-plus"></i></summary>
+          <p class="faq-javob">Katalog yo'q. Siz o'z PDF kitobingizni yuklab, uni audio ko'rinishga aylantirasiz.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="idish">
+    <span class="brand" style="font-size: 20px;">Sadoxon</span>
+    <div class="footer-linklar">
+      <a href="mailto:uktamovulugbek754@gmail.com"><i class="ti ti-mail"></i> uktamovulugbek754@gmail.com</a>
+      <a href="https://t.me/sadoxon_support" target="_blank" rel="noopener"><i class="ti ti-brand-telegram"></i> @sadoxon_support</a>
+      <a href="https://uktamovulugbek754-create.github.io/sadoxon-privacy/" target="_blank" rel="noopener"><i class="ti ti-shield-lock"></i> Maxfiylik siyosati</a>
+    </div>
+    <p class="mualliflik">Sadoxon © 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
